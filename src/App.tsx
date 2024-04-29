@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DataStreamer, { ServerRespond } from './DataStreamer';
 import Graph from './Graph';
 import './App.css';
-import {setInterval} from "node:timers";
+
 
 /**
  * State declaration for <App />
@@ -13,7 +13,7 @@ interface IState {
 }
 
 /**
- * The parent element of the react app.
+ * The parent element of the React app.
  * It renders title, button and Graph react element.
  */
 class App extends Component<{}, IState> {
@@ -24,7 +24,7 @@ class App extends Component<{}, IState> {
       // data saves the server responds.
       // We use this state to parse data down to the child element (Graph) as element property
       data: [],
-      showGraph: fales,
+      showGraph: false,
     };
   }
 
@@ -50,7 +50,7 @@ class App extends Component<{}, IState> {
       });
     });
       x++;
-      if(x>1000){
+      if(x > 1000){
         clearInterval(interval);
       }
     }, 100);
@@ -68,7 +68,7 @@ class App extends Component<{}, IState> {
         </header>
         <div className="App-content">
           <button className="btn btn-primary Stream-button"
-            // when button is click, our react app tries to request
+            // when button is click, our React app tries to request
             // new data from the server.
             // As part of your task, update the getDataFromServer() function
             // to keep requesting the data every 100ms until the app is closed
